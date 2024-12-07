@@ -2,11 +2,17 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize('mysql://username:password@localhost:3306/database_name');
 
-const User = require('./User')(sequelize, DataTypes);
-const Goal = require('./Goal')(sequelize, DataTypes);
-const DayPlan = require('./DayPlan')(sequelize, DataTypes);
-const Task = require('./Task')(sequelize, DataTypes);
-const Follower = require('./Follower')(sequelize, DataTypes);
+const User = require('./User');
+const Goal = require('./Goals');
+const DayPlan = require('./DayPlan');
+const Task = require('./Task');
+const Follower = require('./Follower');
+
+// const User = require('./User')(sequelize, DataTypes);
+// const Goal = require('./Goal')(sequelize, DataTypes);
+// const DayPlan = require('./DayPlan')(sequelize, DataTypes);
+// const Task = require('./Task')(sequelize, DataTypes);
+// const Follower = require('./Follower')(sequelize, DataTypes);
 
 // Quan hệ
 User.hasMany(Goal, { foreignKey: 'UserID' });

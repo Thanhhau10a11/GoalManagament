@@ -32,6 +32,24 @@ exports.getGoalById = async (req, res) => {
     }
 };
 
+
+// Lấy mục tiêu theo Public
+exports.getGoalsPublic = async (req, res) => {
+    try {
+        const goal = await Goal.findAll({
+            where: {
+                Visibility: "public", // Điều kiện lọc
+            },
+        });
+        if (!goal) {
+            return res.status(404).json({ message: 'Goal not found' });
+        }
+        res.json(goal);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
 // Tạo mục tiêu mới
 exports.createGoal = async (req, res) => {
     try {

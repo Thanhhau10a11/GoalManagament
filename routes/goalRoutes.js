@@ -11,6 +11,9 @@ router.get('/goals/:userId', goalController.getGoals);
 // Lấy mục tiêu theo ID
 router.get('/goalsById/:id', goalController.getGoalById);
 
+// Lấy mục tiêu public
+router.get('/goalsPublic', goalController.getGoalsPublic);
+
 // Tạo mục tiêu mới
 router.post('/goals', goalController.createGoal);
 
